@@ -7,12 +7,15 @@ int main() {
 	std::cout << "Input number: ";
 	std::cin >> number;
 
-	for (int i = 2; i < number; i++) {
-		if (number % i == 0) {
-			isPrime = false;		// remove add operation
-			break;		// loop terminates as soon as a divisor is found.
+	if (number < 2)
+		isPrime = false;
+	else
+		for (int i = 2; i < number; i++) {
+			if (number % i == 0) {
+				isPrime = false;		// remove add operation
+				break;		// loop terminates as soon as a divisor is found.
+			}
 		}
-	}
 
 	if (isPrime == true)
 		std::cout << number << " is prime number!\n";
