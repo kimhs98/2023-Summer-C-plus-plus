@@ -1,23 +1,26 @@
 #include <iostream>
 
+bool isPrime(int n) {		// pass by value
+	if (n < 2)
+		return false;
+	else
+		for (int i = 2; i < n; i++) {
+			if (n % i == 0) {
+				//isPrime = false;
+				//break;
+				return false;
+			}
+		}
+	return true;
+}
+
 int main() {
 	int number = 0;
-	bool isPrime = true;		// less momory, readability
 
 	std::cout << "Input number: ";
 	std::cin >> number;
 
-	if (number < 2)
-		isPrime = false;
-	else
-		for (int i = 2; i < number; i++) {
-			if (number % i == 0) {
-				isPrime = false;		// remove add operation
-				break;		// loop terminates as soon as a divisor is found.
-			}
-		}
-
-	if (isPrime == true)
+	if (isPrime(number))
 		std::cout << number << " is prime number!\n";
 	else
 		std::cout << number << " is not prime number!\n";
