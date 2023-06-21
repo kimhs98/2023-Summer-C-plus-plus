@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
 
-void test(int ra){		// call by value
+void test(int &ra){		// call by reference
 	ra = 7;
+	//cout << &ra << '\n';
 }
 
 int main() {
