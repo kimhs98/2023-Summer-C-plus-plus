@@ -1,41 +1,30 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Student {
-private:
-	int id;
-	string name;
-	static int count;
-public:
-	Student() {
-		cout << this << " default constructor!\n";
-		count++;
-	}
-
-	static int getCount() {		//inline
-		return count;
-	}
-
-	~Student() {
-		cout << this << " destructor activated... RIP!\n";
-		count--;
-	}
-};
-
-void test() {
-	Student s3;
-	cout << Student::getCount() << '\n';
-}
-
-int Student::count = 0;		// initialize
-
 int main() {
-	Student s1;
-	Student s2;
-	cout << s1.getCount() << '\n';
-	cout << Student::getCount() << '\n';
-	test();
-	cout << Student::getCount() << '\n';		// 3, ???
+	// * fee: adult/10000/19+, teenager/7000/18~9, child/5000/8-
+	int noOfPeople = 0;
+	int total = 0;
+
+	cout << "Input no of people: ";
+	cin >> noOfPeople;
+	int* pAge = new int[noOfPeople];		// dynamic memory allocation (heap memory)
+
+	for (auto i = 0; i < noOfPeople; i++) {
+		cout << "Input age: ";
+		cin >> *(pAge + i);		// cin << pAge[i];
+	}
+
+	for (auto i = 0; i < noOfPeople; i++) {
+		int age = pAge[i];
+		if (age >= 19)
+			total += 10000;
+		else if (age >= 8)
+			total += 7000;
+		else
+			total += 5000;
+	}
+	cout << "People: " << noOfPeople << ", Fee: " << total << '\n';
+
 	return 0;
 }
