@@ -26,5 +26,8 @@ int main() {
 	}
 	cout << "People: " << noOfPeople << ", Fee: " << total << '\n';
 
+	delete[] pAge;		// free heap memory (prevent memory leak)
+	pAge = nullptr;
+
 	return 0;
 }
