@@ -16,6 +16,11 @@ public:
 	static int getCount() {		//inline
 		return count;
 	}
+
+	~Student() {
+		cout << "destructor activated... RIP!\n";
+		count--;
+	}
 };
 
 void test() {
