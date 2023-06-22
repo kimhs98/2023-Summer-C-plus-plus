@@ -9,7 +9,7 @@ private:
 	static int count;
 public:
 	Student() {
-		cout << "default constructor!\n";
+		cout << this << " default constructor!\n";
 		count++;
 	}
 
@@ -18,7 +18,7 @@ public:
 	}
 
 	~Student() {
-		cout << "destructor activated... RIP!\n";
+		cout << this << " destructor activated... RIP!\n";
 		count--;
 	}
 };
