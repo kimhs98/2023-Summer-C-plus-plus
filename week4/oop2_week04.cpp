@@ -18,11 +18,19 @@ public:
 	}
 };
 
+void test() {
+	Student s3;
+	cout << Student::getCount() << '\n';
+}
+
 int Student::count = 0;		// initialize
 
 int main() {
 	Student s1;
+	Student s2;
 	cout << s1.getCount() << '\n';
 	cout << Student::getCount() << '\n';
+	test();
+	cout << Student::getCount() << '\n';		// 3, ???
 	return 0;
 }
